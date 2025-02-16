@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const PriorityPopup = ({ priority, title, description, officeTimings, location, email }) => {
+const PriorityPopup = ({ priority, title, description, officeTimings, image, email }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -23,7 +23,7 @@ const PriorityPopup = ({ priority, title, description, officeTimings, location, 
         {/* Map Section */}
         <div className="relative">
           <img
-            src={location} // Replace with actual map URL
+            src={image} // Replace with actual map URL
             alt="Map"
             className="w-full h-60 rounded-lg object-cover"
           />
@@ -41,7 +41,7 @@ const PriorityPopup = ({ priority, title, description, officeTimings, location, 
           <div className="flex justify-between items-center mt-2">
             <h2 className="text-2xl font-bold text-[#2A3F54]">{title}</h2>
             <button className="flex bg-white border border-gray-300 shadow-lg px-4 py-2 rounded-lg hover:bg-blue-50 transition">
-              <img src="/mail.png" alt="mail" /><span className="ml-2 text-blue-600 font-semibold">View Mail Address</span>
+              <img src="/mail.png" alt="mail" /><a href={`mailto: ${email}`}><span className="ml-2 text-blue-600 font-semibold">View Mail Address</span></a>
             </button>
           </div>
           <p className="text-[#787878] mt-2">{description}</p>

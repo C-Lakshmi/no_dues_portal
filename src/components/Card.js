@@ -3,13 +3,11 @@ import {useNavigate} from "react-router-dom";
 const Card = ({ number, title, location, time, nodues, popupFunc}) => {
     const [clickCard,setClickCard]=useState(false);
     const [popup,setPopup]=useState(false);
-    const handleClick=() => {
-        //console.log("clicked");
+    const handleClick=(e) => {
         setClickCard(!clickCard);
         setPopup(!popup);
-        popupFunc(!popup);
-        
-    };
+        popupFunc(number, !popup);
+        };
     return (
     <div className="flex items-center space-x-4 ">
         
@@ -58,7 +56,7 @@ const Card = ({ number, title, location, time, nodues, popupFunc}) => {
           {/* Bottom Connecting Line */}
           <div className="w-1 flex-1 bg-blue-200 h-6"></div>
         </div>}
-        {nodues!==0 && <div onClick={handleClick} className={`relative rounded-xl p-6 pr-8 flex justify-between items-center my-3 shadow-md overflow-hidden w-full h-[156px] cursor-pointer transition-all duration-200 ${
+        {nodues!==0 && <div onClick={(e)=>{handleClick(e)}} className={`relative rounded-xl p-6 pr-8 flex justify-between items-center my-3 shadow-md overflow-hidden w-full h-[156px] cursor-pointer transition-all duration-200 ${
             clickCard ? "bg-[#2164E8] text-white" : "bg-white text-black" 
           }`}>
     <div className="text-left ml-7 ">
